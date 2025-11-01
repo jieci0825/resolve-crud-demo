@@ -31,7 +31,9 @@ module.exports = app => {
         const { ext } = path.parse(filePath)
 
         // 提取文件路径，即计算出相对路径，并去掉后缀
-        const relativePath = path.relative(middlewarePath, filePath).replace(ext, '')
+        const relativePath = path
+            .relative(middlewarePath, filePath)
+            .replace(ext, '')
 
         // 将名称从 - 连接改为小驼峰
         const keys = relativePath.split('/').map(item => camelCase(item))
