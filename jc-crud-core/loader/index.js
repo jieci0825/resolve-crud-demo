@@ -17,11 +17,11 @@ module.exports = {
         routerSchemaLoader(app)
         console.log('-- [start] load router schema done --')
 
-        controllerLoader(app)
-        console.log('-- [start] load controller done --')
-
         serviceLoader(app)
         console.log('-- [start] load service done --')
+
+        controllerLoader(app)
+        console.log('-- [start] load controller done --')
 
         configLoader(app)
         console.log('-- [start] load config done --')
