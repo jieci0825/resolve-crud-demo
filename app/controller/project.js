@@ -1,14 +1,15 @@
 module.exports = app => {
-    return class ProjectController {
+    const BaseController = require('./base')(app)
+
+    return class ProjectController extends BaseController {
+        constructor() {
+            super()
+        }
+
         async getList(ctx) {
             const { project: projectService } = app.services
             const result = await projectService.getList()
-            ctx.status = 200
-            ctx.body = {
-                data: result,
-                success: true,
-                metadata: {}
-            }
+            this.success(ctx, result)
         }
     }
 }
