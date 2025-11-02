@@ -1,7 +1,12 @@
-const koaNunjucks = require('koa-nunjucks-2')
 const path = require('path')
 
 module.exports = app => {
+    // 静态资源处理中间件
+    const KoaStatic = require('koa-static')
+    app.use(KoaStatic(path.resolve(process.cwd(), './app/public')))
+
+    // 模板引擎处理中间件
+    const koaNunjucks = require('koa-nunjucks-2')
     app.use(
         koaNunjucks({
             ext: 'tpl',
