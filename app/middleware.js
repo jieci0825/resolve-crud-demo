@@ -5,6 +5,15 @@ module.exports = app => {
     const KoaStatic = require('koa-static')
     app.use(KoaStatic(path.resolve(process.cwd(), './app/public')))
 
+    // 参数解析中间件
+    const bodyParser = require('koa-bodyparser')
+    app.use(
+        bodyParser({
+            formLimit: '1000mb',
+            enableTypes: ['json', 'form', 'text']
+        })
+    )
+
     // 模板引擎处理中间件
     const koaNunjucks = require('koa-nunjucks-2')
     app.use(
