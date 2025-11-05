@@ -16,16 +16,6 @@
     <body>
         <div id="root">
             <h1 style="color: red">hello, Page1!!!</h1>
-            <input
-                type="text"
-                id="env"
-                value="{{ env }}"
-            />
-            <div>
-                <pre>
-                <code>{{options}}</code>
-            </pre>
-            </div>
         </div>
     </body>
 </html>

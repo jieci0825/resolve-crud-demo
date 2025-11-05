@@ -15,7 +15,7 @@ console.log('page2 init')
 </template>
 
 <style scoped lang="scss">
-h2 {
+h1 {
     color: blueviolet;
 }
 </style>
