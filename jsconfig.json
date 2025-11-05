@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./*"],
+            "@utils/*": ["./utils/*"],
+            "@utils": ["./utils"],
+            "@jc-crud-core/*": ["./jc-crud-core/*"],
+            "@jc-crud-core": ["./jc-crud-core"],
+            "@app/*": ["./app/*"],
+            "@app": ["./app"]
+        }
+    },
+    "exclude": ["node_modules", "**/node_modules/**"]
+}
