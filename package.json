@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "cross-env _ENV=local nodemon .",
         "beta": "cross-env _ENV=beta nodemon .",
-        "prod": "cross-env _ENV=production nodemon ."
+        "prod": "cross-env _ENV=production nodemon .",
+        "build": "node ./app/webpack/build.js"
     },
     "repository": {
         "type": "git",
@@ -56,6 +57,7 @@
         "node-schedule": "^2.1.1",
         "path": "^0.12.7",
         "pinia": "^2.1.6",
+        "sass": "^1.93.3",
         "superagent": "^8.1.2",
         "vue": "^3.3.4",
         "vue-json-viewer": "^3.0.4",
@@ -83,6 +85,7 @@
         "mini-css-extract-plugin": "^2.7.6",
         "mocha": "^6.1.4",
         "nodemon": "^3.1.10",
+        "sass-loader": "^16.0.6",
         "style-loader": "^0.14.1",
         "supertest": "^4.0.2",
         "terser-webpack-plugin": "^2.3.5",
