@@ -13,7 +13,7 @@ const { camelCase } = require('lodash')
  *          |
  *          |- custom-extend.js
  * ```
- * 就可以通过 `app.extends.customModule.customExtend` 访问
+ * 就可以通过 `app.extends.customExtend` 访问
  */
 module.exports = app => {
     // 读取符合 glob 规则 app/extend/**.js 的文件

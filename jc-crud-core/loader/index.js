@@ -4,7 +4,7 @@ const controllerLoader = require('./controller')
 const routerLoader = require('./router')
 const routerSchemaLoader = require('./router-schema')
 const serviceLoader = require('./service')
-const extend = require('./extend')
+const extendLoader = require('./extend')
 const path = require('path')
 
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
         configLoader(app)
         console.log('-- [start] load config done --')
 
-        extend(app)
+        extendLoader(app)
         console.log('-- [start] load extend done --')
 
         // 还有一些中间件，需要单独加载
@@ -50,5 +50,5 @@ module.exports = {
     routerLoader,
     routerSchemaLoader,
     serviceLoader,
-    extend
+    extendLoader
 }
