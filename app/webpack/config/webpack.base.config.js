@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 /**
  * @type {import('webpack').Configuration}
@@ -66,6 +67,11 @@ module.exports = {
         }
     },
     plugins: [
+        // 在构建前清理输出目录
+        new CleanWebpackPlugin(['production'], {
+            root: path.resolve(process.cwd(), './app/public/dist'),
+            verbose: true
+        }),
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
             __VUE_OPTIONS_API: true,
@@ -73,18 +79,12 @@ module.exports = {
             __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false
         }),
         new HtmlWebpackPlugin({
-            filename: path.resolve(
-                process.cwd(),
-                './app/public/dist/entry.page1.tpl'
-            ),
+            filename: path.resolve(process.cwd(), './app/public/dist/entry.page1.tpl'),
             template: path.resolve(process.cwd(), './app/view/entry.tpl'),
             chunks: ['entry.page1']
         }),
         new HtmlWebpackPlugin({
-            filename: path.resolve(
-                process.cwd(),
-                './app/public/dist/entry.page2.tpl'
-            ),
+            filename: path.resolve(process.cwd(), './app/public/dist/entry.page2.tpl'),
             template: path.resolve(process.cwd(), './app/view/entry.tpl'),
             chunks: ['entry.page2']
         })
