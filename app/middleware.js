@@ -28,4 +28,7 @@ module.exports = app => {
             }
         })
     )
+
+    // 注册全局异常处理中间件
+    app.use(app.middlewares.errorHandler)
 }
