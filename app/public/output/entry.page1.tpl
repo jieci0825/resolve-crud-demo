@@ -43,7 +43,8 @@
                     url: '/api/project/list',
                     params: {
                         page: 1,
-                        pageSize: 10
+                        pageSize: 10,
+                        projectKey: 'test'
                     },
                     headers: {
                         s_sign: signature,
