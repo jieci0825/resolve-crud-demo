@@ -36,7 +36,7 @@ module.exports = app => {
             .replace(ext, '')
 
         // 将名称从 - 连接改为小驼峰
-        const keys = relativePath.split('/').map(item => camelCase(item))
+        const keys = relativePath.split(path.sep).map(item => camelCase(item))
 
         // 创建嵌套对象
         //  -  实际导出是一个函数，所以调用即可

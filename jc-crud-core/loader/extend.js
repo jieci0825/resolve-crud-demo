@@ -31,7 +31,7 @@ module.exports = app => {
 
         // 将名称从 - 连接改为小驼峰
         //  - extend 只有一层，所以不需要递归处理对象，所以直接解构拿取
-        const [name] = relativePath.split('/').map(item => camelCase(item))
+        const [name] = relativePath.split(path.sep).map(item => camelCase(item))
 
         // 处理扩展同名的情况
         for (const key in app) {
