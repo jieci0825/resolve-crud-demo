@@ -3,16 +3,34 @@ const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const glob = require('glob')
+
+// 获取所有入口文件
+const entryFiles = glob.sync(path.resolve(process.cwd(), './app/pages/*/entry.*.js'))
+
+// 构建入口对象
+const entry = entryFiles.reduce((pre, cur) => {
+    const filename = path.parse(cur).name
+    pre[filename] = cur
+    return pre
+}, {})
+
+// 动态生成 HtmlWebpackPlugin 实例
+const htmlPlugins = entryFiles.map(entryFile => {
+    const filename = path.parse(entryFile).name
+    return new HtmlWebpackPlugin({
+        filename: path.resolve(process.cwd(), `./app/public/dist/${filename}.tpl`),
+        template: path.resolve(process.cwd(), './app/view/entry.tpl'),
+        chunks: [filename]
+    })
+})
 
 /**
  * @type {import('webpack').Configuration}
  */
 module.exports = {
     // 入口配置
-    entry: {
-        'entry.page1': './app/pages/page1/entry.page1.js',
-        'entry.page2': './app/pages/page2/entry.page2.js'
-    },
+    entry,
     // 模块解析配置
     module: {
         rules: [
@@ -78,16 +96,8 @@ module.exports = {
             __VUE_PROD_DEVTOOLS: false,
             __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false
         }),
-        new HtmlWebpackPlugin({
-            filename: path.resolve(process.cwd(), './app/public/dist/entry.page1.tpl'),
-            template: path.resolve(process.cwd(), './app/view/entry.tpl'),
-            chunks: ['entry.page1']
-        }),
-        new HtmlWebpackPlugin({
-            filename: path.resolve(process.cwd(), './app/public/dist/entry.page2.tpl'),
-            template: path.resolve(process.cwd(), './app/view/entry.tpl'),
-            chunks: ['entry.page2']
-        })
+        // 动态生成的 HTML 插件
+        ...htmlPlugins
     ],
     optimization: {}
 }
