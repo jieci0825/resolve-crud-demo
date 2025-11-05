@@ -7,6 +7,8 @@ const { loadLoaders } = require('./loader')
 module.exports = {
     /**
      * @param {object} options
+     * @param {string} options.name 名称
+     * @param {string} options.homePath 项目首页路径
      */
     start(options) {
         const app = new Koa()

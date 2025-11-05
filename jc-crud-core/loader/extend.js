@@ -13,7 +13,7 @@ const { camelCase } = require('lodash')
  *          |
  *          |- custom-extend.js
  * ```
- * 就可以通过 `app.extends.customModule.customExtend` 访问
+ * 就可以通过 `app.extends.customExtend` 访问
  */
 module.exports = app => {
     // 读取符合 glob 规则 app/extend/**.js 的文件
@@ -31,7 +31,7 @@ module.exports = app => {
 
         // 将名称从 - 连接改为小驼峰
         //  - extend 只有一层，所以不需要递归处理对象，所以直接解构拿取
-        const [name] = relativePath.split('/').map(item => camelCase(item))
+        const [name] = relativePath.split(path.sep).map(item => camelCase(item))
 
         // 处理扩展同名的情况
         for (const key in app) {
