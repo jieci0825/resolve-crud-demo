@@ -31,6 +31,10 @@ module.exports = app => {
 
     // 注册全局异常处理中间件
     app.use(app.middlewares.errorHandler)
+
     // 注册 API 请求签名验证中间件
     app.use(app.middlewares.apiSignVerify)
+
+    // 注册 API 参数校验中间件
+    app.use(app.middlewares.apiParamsVerify)
 }
