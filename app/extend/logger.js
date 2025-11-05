@@ -2,7 +2,7 @@ const log4js = require('log4js')
 
 /**
  * 日志工具
- * @example 外部调用方式 app.logger.log('hello world') app.logger.error('a is not defined')
+ * @example 外部调用方式 app.logger.info('hello world') app.logger.error('a is not defined')
  */
 module.exports = app => {
     let logger
