@@ -25,7 +25,7 @@ module.exports = app => {
             ctx.body = {
                 success: false,
                 message: '服务器错误，请稍后再试！！！',
-                code: 5000
+                code: 50000
             }
         }
     }
