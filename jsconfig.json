@@ -8,7 +8,15 @@
             "@jc-crud-core/*": ["./jc-crud-core/*"],
             "@jc-crud-core": ["./jc-crud-core"],
             "@app/*": ["./app/*"],
-            "@app": ["./app"]
+            "@app": ["./app"],
+            "$pages/*": ["./app/pages/*"],
+            "$pages": ["./app/pages"],
+            "$widgets/*": ["./app/pages/widgets/*"],
+            "$widgets": ["./app/pages/widgets"],
+            "$store/*": ["./app/pages/store/*"],
+            "$store": ["./app/pages/store"],
+            "$common/*": ["./app/pages/common/*"],
+            "$common": ["./app/pages/common"]
         }
     },
     "exclude": ["node_modules", "**/node_modules/**"]
