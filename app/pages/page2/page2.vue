@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import { sum } from '$common/utils'
 
 const content = ref('')
-console.log('page2 init')
+console.log('page2 init', sum(10, 20))
 </script>
 
 <template>
