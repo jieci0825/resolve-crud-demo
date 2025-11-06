@@ -7,7 +7,8 @@
         "dev": "cross-env _ENV=local nodemon .",
         "beta": "cross-env _ENV=beta nodemon .",
         "prod": "cross-env _ENV=production nodemon .",
-        "build": "node ./app/webpack/build.js"
+        "build:dev": "node --max_old_space_size=4096 ./app/webpack/dev.js",
+        "build:prod": "node ./app/webpack/prod.js"
     },
     "repository": {
         "type": "git",
