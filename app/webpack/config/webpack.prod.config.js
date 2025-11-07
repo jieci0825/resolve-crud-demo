@@ -28,6 +28,7 @@ const webpackProdConfig = {
         publicPath: '/dist/production',
         crossOriginLoading: 'anonymous'
     },
+    devtool: 'eval-cheap-module-source-map',
     module: {
         rules: [
             {

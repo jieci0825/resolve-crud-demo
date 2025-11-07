@@ -4,7 +4,7 @@ import { sum } from '$common/utils'
 import './page1.css'
 
 const content = ref('')
-console.log('page1 init', sum(1, 2))
+console.log('page1 init--', sum(1, 2))
 </script>
 
 <template>

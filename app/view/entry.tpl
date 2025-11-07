@@ -11,6 +11,11 @@
             rel="stylesheet"
             href="/static/normalize.css"
         />
+        <link
+            rel="icon"
+            href="/static/logo.png"
+            type="image/x-icon"
+        />
     </head>
 
     <body>
