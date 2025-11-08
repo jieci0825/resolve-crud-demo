@@ -20,7 +20,7 @@ module.exports = {
                         description: '每页数量'
                     }
                 },
-                required: ['projectKey']
+                required: []
             }
         }
     }
