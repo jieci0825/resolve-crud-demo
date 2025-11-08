@@ -78,10 +78,12 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.less', '.css', '.json'],
         alias: {
-            $pages: path.resolve(process.cwd(), './app/pages'),
-            $common: path.resolve(process.cwd(), './app/pages/common'),
-            $widgets: path.resolve(process.cwd(), './app/pages/widgets'),
-            $store: path.resolve(process.cwd(), './app/pages/store')
+            '@': process.cwd(),
+            '$root': path.resolve(process.cwd(), './app'),
+            '$pages': path.resolve(process.cwd(), './app/pages'),
+            '$common': path.resolve(process.cwd(), './app/pages/common'),
+            '$widgets': path.resolve(process.cwd(), './app/pages/widgets'),
+            '$store': path.resolve(process.cwd(), './app/pages/store')
         }
     },
     plugins: [
