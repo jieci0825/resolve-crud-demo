@@ -15,13 +15,17 @@ module.exports = app => {
     // 获取 [env].config.js
     let envConfig = {}
 
-    // 根据环境加载不同的配置文件
-    if (app.env.isLocal()) {
-        envConfig = require(path.join(configDir, 'local.config.js'))
-    } else if (app.env.isBeta()) {
-        envConfig = require(path.join(configDir, 'beta.config.js'))
-    } else if (app.env.isProduction()) {
-        envConfig = require(path.join(configDir, 'production.config.js'))
+    try {
+        // 根据环境加载不同的配置文件
+        if (app.env.isLocal()) {
+            envConfig = require(path.join(configDir, 'local.config.js'))
+        } else if (app.env.isBeta()) {
+            envConfig = require(path.join(configDir, 'beta.config.js'))
+        } else if (app.env.isProduction()) {
+            envConfig = require(path.join(configDir, 'production.config.js'))
+        }
+    } catch (error) {
+        console.log(`[load env config] ${error.message}`)
     }
 
     // 合并配置并挂载
