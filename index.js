@@ -1,8 +1,10 @@
-require('module-alias/register')
+const Koa = require('koa')
 
-const JcCore = require('@/jc-crud-core')
+const app = new Koa()
 
-JcCore.start({
-    name: 'JcCrud',
-    homePath: '/'
+const PORT = process.env.PORT || 3000
+const HOST = process.env.IP || '0.0.0.0'
+
+app.listen(PORT, HOST, () => {
+    console.log(`服务启动成功： http://${HOST}:${PORT}`)
 })
