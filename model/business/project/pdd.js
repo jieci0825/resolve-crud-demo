@@ -13,7 +13,7 @@ module.exports = {
         },
         {
             key: 'data',
-            label: '数据分析',
+            label: '数据分析（拼多多）',
             menuType: 'module',
             moduleType: 'side',
             sideConfig: {
